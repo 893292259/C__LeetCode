@@ -3,4 +3,4 @@ project(C__LeetCode)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(C__LeetCode main.cpp)
+add_executable(C__LeetCode test/test.cpp test/Problem226.h)
