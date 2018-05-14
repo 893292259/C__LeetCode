@@ -3,14 +3,11 @@
 //
 #include <iostream>
 #include <vector>
+#include "../DataStructures/TreeNode.h"
+
 #ifndef C_LEETCODE_PROBLEM226_H
 #define C_LEETCODE_PROBLEM226_H
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
+
 class Solution {
 public:
     static TreeNode* invertTree(TreeNode* root) {
@@ -28,13 +25,12 @@ public:
     }
 };
 
-int problem226() {
+void problem226() {
     TreeNode a(6);
     TreeNode b(5);
     TreeNode c(4);
     a.left = &b;
     a.right = &c;
     Solution::invertTree(&a);
-    return 0;
 }
 #endif //C_LEETCODE_PROBLEM226_H

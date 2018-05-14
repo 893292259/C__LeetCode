@@ -2,9 +2,10 @@
 // Created by LiuZhizheng on 2018/5/14.
 //
 
-#include "Problem226.h"
+#include "Problems/Problem221.h"
 using namespace std;
 
 int main() {
-    problem226();
+    problem221();
+    return 0;
 }
