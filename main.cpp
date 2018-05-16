@@ -2,10 +2,10 @@
 // Created by LiuZhizheng on 2018/5/14.
 //
 
-#include "Problems/Problem300.h"
+#include "Problems/Problem218.h"
 using namespace std;
 
 int main() {
-    problem300();
+    problem218();
     return 0;
 }
