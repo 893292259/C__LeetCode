@@ -48,33 +48,33 @@ public:
             stack.push_back(init1);
             pair<int, int> init2(buildings[0][1], 0);
             stack.push_back(init2);
-            for (int i = 1; i < buildings.size(); i++) {
-                int leftPlace = findPosition1(buildings[i][0], 0, stack.size(), stack) - 1;
-                if (stack[leftPlace].second <= buildings[i][2]) {
+            for (auto& building: buildings) {
+                int leftPlace = findPosition1(building[0], 0, stack.size(), stack) - 1;
+                if (stack[leftPlace].second <= building[2]) {
                     int lastHeight = stack[leftPlace].second;
                     for (int i = 0; i <= leftPlace; i++) {
                         result.push_back(stack[i]);
                     }
                     stack.erase(stack.begin(), stack.begin() + leftPlace + 1);
-                    pair<int, int> result1(buildings[i][0], buildings[i][2]);
+                    pair<int, int> result1(building[0], building[2]);
                     stack.insert(stack.begin(), result1);
-                    int rightPlace = findPosition1(buildings[i][1], 0, stack.size(), stack) - 1;
+                    int rightPlace = findPosition1(building[1], 0, stack.size(), stack) - 1;
                     pair<int, int> result2;
                     if (rightPlace > 0) {
-                        result2.first = buildings[i][1];
+                        result2.first = building[1];
                         result2.second = stack[rightPlace].second;
                     } else {
-                        result2.first = buildings[i][1];
+                        result2.first = building[1];
                         result2.second = lastHeight;
                     }
                     stack.insert(stack.begin() + rightPlace + 1, result2);
                     stack.erase(stack.begin() + 1, stack.begin() + rightPlace + 1);
                 } else {
-                    int rightPlace = findPosition1(buildings[i][1], 0, stack.size(), stack) - 1;
-                    int heightPlace = findPosition2(buildings[i][2], 0, stack.size(), stack) - 1;
+                    int rightPlace = findPosition1(building[1], 0, stack.size(), stack) - 1;
+                    int heightPlace = findPosition2(building[2], 0, stack.size(), stack) - 1;
                     if (heightPlace < rightPlace) {
-                        pair<int, int> result1(stack[heightPlace + 1].first, buildings[i][2]);
-                        pair<int, int> result2(buildings[i][1], stack[rightPlace].second);
+                        pair<int, int> result1(stack[heightPlace + 1].first, building[2]);
+                        pair<int, int> result2(building[1], stack[rightPlace].second);
                         stack.insert(stack.begin() + heightPlace + 1, result1);
                         stack.insert(stack.begin() + rightPlace + 2, result2);
                         stack.erase(stack.begin() + heightPlace + 2, stack.begin() + rightPlace + 2);
