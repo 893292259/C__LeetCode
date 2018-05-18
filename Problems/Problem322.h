@@ -18,8 +18,10 @@ public:
         for (int i=1;i<=amount;i++){
             int Min = amount+1;
             int j=0;
-            while(j<coins.size()&&coins[j]<=i&&dp[i-coins[j]]!=-1){
-                Min = min(Min,1+dp[i-coins[j]]);
+            while(j<coins.size()&&coins[j]<=i){
+                if (dp[i-coins[j]]!=-1) {
+                    Min = min(Min, 1 + dp[i - coins[j]]);
+                }
                 j++;
             }
             if (Min<=amount) dp[i] = Min;
