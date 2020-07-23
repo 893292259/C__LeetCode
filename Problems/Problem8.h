@@ -41,7 +41,7 @@ public:
 void problem8(){    
     string s = "42";
     Solution solution;
-    cout<<solution.myAtoi(s)<<endl;
+    cout<<solution.myAtoi(s)<<endl<<" ";
     
 }
 #endif //C_LEETCODE_PROBLEM234_H
